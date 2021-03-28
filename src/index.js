@@ -1,1 +1,3 @@
-console.log('file 2');
+import './js/file';
+
+import './scss/common.scss';
