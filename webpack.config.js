@@ -35,6 +35,25 @@ module.exports = {
         test: /\.(s*)css$/,
         use: [miniCss.loader, 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images/',
+        },
+      },
     ],
   },
 };

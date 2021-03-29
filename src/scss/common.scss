@@ -3,3 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Roboto-Bold';
+  min-height: 100vh;
+  color: #ffffff;
+  text-align: center;
+  background: url('../images/Leon.jpg') center center no-repeat;
+  background-size: contain;
+}
