@@ -1,9 +1,11 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DynamicHtmlWebpackPlugin = require('dynamic-html-webpack-plugin');
 const miniCss = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    common: './src/index.js',
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
@@ -12,8 +14,11 @@ module.exports = {
     minimize: false,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
+    new DynamicHtmlWebpackPlugin({
+      dir: './src/pages',
+      additionalChunks: {
+        all: 'common',
+      },
     }),
     new miniCss({
       filename: 'bundle.css',
@@ -26,9 +31,6 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
         },
       },
       {

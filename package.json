@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "rm -rf ./build && webpack --mode=production",
-    "start": "webpack serve --open --mode=development"
+    "start": "webpack serve --open --mode=development",
+    "new:component": "hygen new component"
   },
   "author": "Nort",
   "license": "ISC",
@@ -13,8 +14,9 @@
     "@babel/preset-env": "^7.13.12",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.0",
+    "dynamic-html-webpack-plugin": "^1.0.3",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.3.1",
+    "hygen": "^6.0.4",
     "mini-css-extract-plugin": "^1.4.0",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
