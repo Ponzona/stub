@@ -10,8 +10,12 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
   },
+  devServer: {
+    contentBase: path.join(__dirname, '/build'),
+    overlay: true,
+  },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   plugins: [
     new DynamicHtmlWebpackPlugin({
@@ -39,20 +43,17 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/',
-            },
-          },
-        ],
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/',
+        },
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         loader: 'file-loader',
         options: {
+          name: '[name].[ext]',
           outputPath: 'images/',
         },
       },
