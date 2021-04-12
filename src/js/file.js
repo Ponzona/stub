@@ -1,3 +1,6 @@
-const text = 'file 1!';
+const text = (args) => {
+  const { a, b } = args;
+  return `File ${a} ${b}`;
+};
 
-console.log(text);
+console.log(text({ a: 1, b: '!' }));
