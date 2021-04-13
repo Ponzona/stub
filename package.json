@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "rm -rf ./build && webpack --mode=production",
-    "start": "webpack serve --open --mode=development",
+    "start:client": "webpack --mode=development",
+    "start:server": "nodemon --watch src/server --watch config src/server/express",
     "new:page": "hygen new component"
   },
   "author": "Nort",
@@ -15,9 +16,11 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.0",
     "dynamic-html-webpack-plugin": "^1.0.3",
+    "express": "^4.17.1",
     "file-loader": "^6.2.0",
     "hygen": "^6.0.4",
     "mini-css-extract-plugin": "^1.4.0",
+    "nodemon": "^2.0.7",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "webpack": "^5.28.0",
