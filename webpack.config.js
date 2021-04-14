@@ -5,9 +5,10 @@ const miniCss = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     common: './src/index.js',
+    ts: './src/index.ts',
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name]-bundle.js',
     path: path.resolve(__dirname, 'build'),
   },
   devServer: {
@@ -22,7 +23,7 @@ module.exports = {
     new DynamicHtmlWebpackPlugin({
       dir: './src/pages',
       additionalChunks: {
-        all: 'common',
+        all: ['common', 'ts'],
       },
     }),
     new miniCss({
@@ -36,6 +37,13 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.ts$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'ts-loader',
         },
       },
       {

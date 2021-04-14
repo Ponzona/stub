@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "noImplicitAny": true,
+    "target": "ES5",
+    "allowJs": true,
+    "skipLibCheck": true,
+  }
+}
