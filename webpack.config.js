@@ -40,7 +40,12 @@ module.exports = {
       },
       {
         test: /\.(s*)css$/,
-        use: [miniCss.loader, 'css-loader', 'sass-loader'],
+        use: [
+          miniCss.loader,
+          { loader: 'css-loader' },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
